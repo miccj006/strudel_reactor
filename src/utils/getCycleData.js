@@ -1,4 +1,4 @@
-export default function getCycleData(songText) {
+function getCycleData(songText) {
     const cycleData = {
         isCycleExists: false,
         isPerMinute: false,
@@ -32,3 +32,5 @@ export default function getCycleData(songText) {
 
     return cycleData
 }
+
+export default getCycleData;

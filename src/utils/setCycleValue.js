@@ -1,4 +1,4 @@
-export default function setCycleValue(songText, cycleData, newCycleText) {
+function setCycleValue(songText, cycleData, newCycleText) {
     let newSongText = songText;
 
     if (cycleData.isCycleExists) {
@@ -9,3 +9,5 @@ export default function setCycleValue(songText, cycleData, newCycleText) {
 
     return newSongText
 }
+
+export default setCycleValue;

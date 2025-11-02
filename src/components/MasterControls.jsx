@@ -1,6 +1,7 @@
 ﻿function MasterControls({ cycleData, songText, setSongText, setCycleValue, setCycleInterval }) {
     return (
         <>
+            <h4>Master Controls</h4>
             <div className="input-group mb-3">
                 <div className="input-group-prepstart">
                     <button className="btn  btn-outline-primary input-group-text" id="cycle-label" onClick={(e) => setSongText(setCycleInterval(songText, cycleData))}>Set {cycleData.isPerMinute ? "CPM" : "CPS"} ↑↓</button>

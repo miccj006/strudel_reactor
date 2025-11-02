@@ -1,4 +1,4 @@
-export default function setCycleInterval(songText, cycleData) {
+function setCycleInterval(songText, cycleData) {
     let newSongText = songText;
 
     if (cycleData.isCycleExists) {
@@ -9,3 +9,5 @@ export default function setCycleInterval(songText, cycleData) {
 
     return newSongText
 }
+
+export default setCycleInterval;
