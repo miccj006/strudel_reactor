@@ -15,6 +15,7 @@ import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons'
 import PreprocessTextArea from './components/PreprocessTextArea'
 import Instruments from './components/Instruments'
+import processText from './util/processText'
 
 let globalEditor = null;
 
@@ -25,12 +26,22 @@ const handleD3Data = (event) => {
 
 export default function StrudelDemo() {
     const hasRun = useRef(false);
-    const handlePlay = () => { globalEditor.evaluate() };
-    const handleStop = () => { globalEditor.stop() };
+    const [songPlaying, setSongPlaying] = useState(false);
+    const handlePlay = () => {
+        globalEditor.evaluate()
+        setSongPlaying(true);
+    };
+    const handleStop = () => {
+        globalEditor.stop()
+        setSongPlaying(false);
+    };
     const [songText, setSongText] = useState(stranger_tune);
+    const [masterVolume, setMasterVolume] = useState(1);
+    const [processSong, setProcessSong] = useState(true);
 
     // Demo Effect
     useEffect(() => {
+        console.log(globalEditor)
         if (!hasRun.current) {
             document.addEventListener("d3Data", handleD3Data);
             console_monkey_patch();
@@ -62,8 +73,11 @@ export default function StrudelDemo() {
                     },
                 });
         }
-        globalEditor.setCode(songText);
-    }, [songText]);
+        globalEditor.setCode(processText(songText, masterVolume));
+        if (songPlaying) {
+            handlePlay()
+        }
+    }, [songText, processSong]);
 
 
     return (
@@ -91,7 +105,7 @@ export default function StrudelDemo() {
                             <div id="output" />
                         </div>
                         <div className="col-md-4">
-                            <MasterControls songText={songText} setSongText={setSongText} />
+                            <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume} onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                             <Instruments songText={songText} setSongText={setSongText} />
                         </div>
                     </div>
