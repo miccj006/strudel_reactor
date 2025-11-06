@@ -1,42 +1,37 @@
 function getInstruments(songText) {
 
-    const instrumentNames = getInstrumentNames(songText);
-    const instrumentsData = getInstrumentValues(songText, instrumentNames);
+    const instrumentTexts = getInstrumentText(songText);
+    const instruments = getInstrumentValues(instrumentTexts);
 
-    //console.log(instruments)
-    return instrumentNames
+    console.log(instruments[0].name)
+    return instrumentTexts
 }
 
-function getInstrumentNames(songText) {
-    // Regex specifies a new line, followed by a word, then a colon (gets them in a group)
-    const instrumentRegex = /\n\b[\w\-]+:/g
-    const instrumentNames = songText.match(instrumentRegex);
+function getInstrumentText(songText) {
+    // I used "https://regex101.com/" to make this regex
+    // This regex captures an instrument found within a strudle song text code
+    const instrumentRegex = /\n\s+?(?=\b[\w\-]+:)[\s\S]+?(?=(\)[\s\n]*[\/\w]))\)/g
+    const instrumentTexts = songText.match(instrumentRegex);
 
-    // Remove the '\n' at the start
-    instrumentNames.forEach((d, i) => {
-        instrumentNames[i] = d.slice(1)
+    instrumentTexts.forEach((text, index) => {
+        instrumentTexts[index] = text.trim();
     })
 
-    return instrumentNames
+    return instrumentTexts
 }
 
-function getInstrumentValues(songText, instrumentNames) {
-    // Any ')' followed by white space and a word or code comment
-    let instrumentEndRegex = /\)[\s\n]*[\w(\/)\2]/
-    console.log(instrumentNames)
+function getInstrumentValues(instrumentTexts) {
+    const instruments = [];
 
-    instrumentNames.forEach((d) => {
-        console.log(d)
-        let startIndex = songText.lastIndexOf(d);
-        let remainingSongText = songText.slice(startIndex)
+    instrumentTexts.forEach((text, index) => {
+        let instrument = {
+            name: text
+        }
 
-        let instrumentEndMatch = remainingSongText.match(instrumentEndRegex, startIndex)
-        let endIndex = remainingSongText.indexOf(instrumentEndMatch[0]) + startIndex
-
-        console.log(startIndex, endIndex)
+        instruments[index] = instrument
     })
 
-    return ''
+    return instruments
 }
 
 export default getInstruments;
