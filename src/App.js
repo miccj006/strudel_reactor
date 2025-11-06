@@ -10,12 +10,11 @@ import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 
-import MasterControls from './components/MasterControls'
+import MasterControls from './components/MasterControls';
 import PlayButtons from './components/PlayButtons';
-import ProcButtons from './components/ProcButtons'
-import PreprocessTextArea from './components/PreprocessTextArea'
-import Instruments from './components/Instruments'
-import processText from './util/processText'
+import PreprocessTextArea from './components/PreprocessTextArea';
+import Instruments from './components/Instruments';
+import processText from './util/processText';
 
 let globalEditor = null;
 
@@ -26,14 +25,14 @@ const handleD3Data = (event) => {
 
 export default function StrudelDemo() {
     const hasRun = useRef(false);
-    const [songPlaying, setSongPlaying] = useState(false);
+    const [songIsPlaying, SetSongIsPlaying] = useState(false);
     const handlePlay = () => {
         globalEditor.evaluate()
-        setSongPlaying(true);
+        SetSongIsPlaying(true);
     };
     const handleStop = () => {
         globalEditor.stop()
-        setSongPlaying(false);
+        SetSongIsPlaying(false);
     };
     const [songText, setSongText] = useState(stranger_tune);
     const [masterVolume, setMasterVolume] = useState(1);
@@ -74,7 +73,7 @@ export default function StrudelDemo() {
                 });
         }
         globalEditor.setCode(processText(songText, masterVolume));
-        if (songPlaying) {
+        if (songIsPlaying) {
             handlePlay()
         }
     }, [songText, processSong]);
@@ -91,11 +90,10 @@ export default function StrudelDemo() {
                             <PreprocessTextArea songText={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
                         <div className="col-md-4">
-
                             <nav>
-                                <ProcButtons />
-                                <br />
-                                <PlayButtons onPlay={handlePlay} onStop={handleStop} />
+                                <h4>Master Controls</h4>
+                                <PlayButtons onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} />
+                                <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume} onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                             </nav>
                         </div>
                     </div>
@@ -105,7 +103,6 @@ export default function StrudelDemo() {
                             <div id="output" />
                         </div>
                         <div className="col-md-4">
-                            <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume} onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                             <Instruments songText={songText} setSongText={setSongText} />
                         </div>
                     </div>

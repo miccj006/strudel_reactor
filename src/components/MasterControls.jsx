@@ -1,4 +1,6 @@
-﻿function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong }) {
+﻿import VolumeIcon from '../assets/volume'
+
+function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong }) {
     const cycleData = getCycleData(songText)
     function getCycleData(songText) {
         const cycleData = {
@@ -54,7 +56,6 @@
 
     return (
         <>
-            <h4>Master Controls</h4>
             <div className="input-group mb-3">
                 <div className="input-group-prepstart">
                     <button className="btn  btn-outline-primary input-group-text" id="cycle-label" onClick={(e) => setSongText(setCycleInterval(songText, cycleData))}>Set {cycleData.isPerMinute ? "CPM" : "CPS"} ⇅</button>
@@ -69,7 +70,12 @@
             </div>
 
             <label htmlFor="volume-range" className="form-label">Master Volume</label>
-            <input type="range" className="form-range" min="0" max="1" step="0.01" id="volume-range" value={masterVolume} onChange={(e) => onMasterVolumeChange(e.target.value)} onMouseUp={setProcessSong}  />
+            <div className="row align-items-center mx-4">
+                <input type="range" className="form-range col" min="0" max="1" step="0.01" id="volume-range" value={masterVolume} onChange={(e) => onMasterVolumeChange(e.target.value)} onMouseUp={setProcessSong} />
+                <button className="btn btn-light m-0 mx-3 col-2" id="master-volume-button">
+                    <VolumeIcon volume={masterVolume} maxVolume={1} isMute={false} />
+                </button>
+            </div>
         </>
     );
 }
