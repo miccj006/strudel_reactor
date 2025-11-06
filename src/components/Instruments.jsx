@@ -1,5 +1,5 @@
 ﻿import VolumeIcon from '../assets/volume'
-import toggleMute from '../utils/toggleMuteInstrument'
+import { toggleMuteInstrument as toggleMute } from '../utils/InstrumentHandler'
 
 function Instruments({ instruments, songText, setSongText }) {
     function DisableAccordion(e) {

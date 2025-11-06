@@ -1,4 +1,4 @@
-function getCycleData(songText) {
+export function getCycleData(songText) {
     const cycleData = {
         isCycleExists: false,
         isPerMinute: false,
@@ -33,4 +33,26 @@ function getCycleData(songText) {
     return cycleData
 }
 
-export default getCycleData;
+export function setCycleInterval(songText, cycleData) {
+    let newSongText = songText;
+
+    if (cycleData.isCycleExists) {
+        const cycleType = cycleData.isPerMinute ? 'setcpm' : 'setcps';
+        const newCycleType = cycleData.isPerMinute ? 'setcps' : 'setcpm';
+        newSongText = songText.replaceAll(cycleType, newCycleType)
+    }
+
+    return newSongText
+}
+
+export function setCycleValue(songText, cycleData, newCycleText) {
+    let newSongText = songText;
+
+    if (cycleData.isCycleExists) {
+        const cycleType = cycleData.isPerMinute ? 'setcpm' : 'setcps';
+        const newFullText = `${cycleType}(${newCycleText})`
+        newSongText = songText.replaceAll(cycleData.fullText, newFullText)
+    }
+
+    return newSongText
+}

@@ -16,10 +16,8 @@ import ProcButtons from './components/ProcButtons'
 import PreprocessTextArea from './components/PreprocessTextArea'
 import Instruments from './components/Instruments'
 
-import getCycleData from './utils/getCycleData'
-import setCycleValue from './utils/setCycleValue'
-import setCycleInterval from './utils/setCycleInterval'
-import getInstruments from './utils/getInstruments'
+import { getCycleData, setCycleInterval, setCycleValue } from './utils/CycleHandler'
+import { getInstruments } from './utils/InstrumentHandler'
 
 let globalEditor = null;
 
