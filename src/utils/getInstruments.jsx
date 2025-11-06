@@ -24,7 +24,7 @@ function getInstrumentValues(instrumentTexts) {
     const instruments = [];
 
     instrumentTexts.forEach((text, index) => {
-        let mute = text[0] === '_' ? true : false;
+        let mute = text[0] == '_' ? true : false;
         let name = text.slice(0, text.indexOf(':'));
         if (mute) name = name.slice(1);
         let gain = text.slice(text.indexOf('gain(') + 5, text.indexOf(')', text.indexOf('gain(')));
