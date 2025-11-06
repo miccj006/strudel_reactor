@@ -1,6 +1,6 @@
 ﻿import VolumeIcon from '../assets/volume'
 
-function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong }) {
+function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
     const cycleData = getCycleData(songText)
     function getCycleData(songText) {
         const cycleData = {
@@ -52,8 +52,6 @@ function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeCha
         return newSongText
     }
 
-
-
     return (
         <>
             <div className="input-group mb-3">
@@ -72,8 +70,8 @@ function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeCha
             <label htmlFor="volume-range" className="form-label">Master Volume</label>
             <div className="row align-items-center mx-4">
                 <input type="range" className="form-range col" min="0" max="1" step="0.01" id="volume-range" value={masterVolume} onChange={(e) => onMasterVolumeChange(e.target.value)} onMouseUp={setProcessSong} />
-                <button className="btn btn-light m-0 mx-3 col-2" id="master-volume-button">
-                    <VolumeIcon volume={masterVolume} maxVolume={1} isMute={false} />
+                <button className="btn btn-light m-0 mx-3 col-2" id="master-volume-button" onClick={(e) => setMasterMute(!masterMute)} >
+                    <VolumeIcon volume={masterVolume} maxVolume={1} isMute={masterMute}/>
                 </button>
             </div>
         </>

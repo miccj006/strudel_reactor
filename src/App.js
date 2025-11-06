@@ -36,6 +36,7 @@ export default function StrudelDemo() {
     };
     const [songText, setSongText] = useState(stranger_tune);
     const [masterVolume, setMasterVolume] = useState(1);
+    const [masterMute, setMasterMute] = useState(false);
     const [processSong, setProcessSong] = useState(true);
 
     // Demo Effect
@@ -72,11 +73,11 @@ export default function StrudelDemo() {
                     },
                 });
         }
-        globalEditor.setCode(processText(songText, masterVolume));
+        globalEditor.setCode(processText(songText, masterVolume, masterMute));
         if (songIsPlaying) {
             handlePlay()
         }
-    }, [songText, processSong]);
+    }, [songText, processSong, masterMute]);
 
 
     return (
@@ -93,7 +94,9 @@ export default function StrudelDemo() {
                             <nav>
                                 <h4>Master Controls</h4>
                                 <PlayButtons onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} />
-                                <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume} onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
+                                <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume}
+                                    masterMute={masterMute} setMasterMute={setMasterMute}
+                                    onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                             </nav>
                         </div>
                     </div>
