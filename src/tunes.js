@@ -41,6 +41,7 @@ const bass = 0
 
 bassline:
 note(pick(basslines, bass))
+.gain(1)
 .sound("supersaw")
 .postgain(2)
 .room(0.6)
@@ -51,6 +52,7 @@ note(pick(basslines, bass))
 
 main_arp: 
 note(pick(arpeggiator1, "<0 1 2 3>/2"))
+.gain(1)
 .sound("supersaw")
 .lpf(300)
 .adsr("0:0:.5:.1")
@@ -62,6 +64,7 @@ note(pick(arpeggiator1, "<0 1 2 3>/2"))
 drums:
 stack(
   s("tech:5")
+  .gain(1)
   .postgain(6)
   .pcurve(2)
   .pdec(1)
@@ -73,7 +76,7 @@ stack(
   .speed(0.8).jux(rev).room(sine.range(0.1,0.4)).gain(0.6),
 
   s("{~ ~ rim ~ cp ~ rim cp ~!2 rim ~ cp ~ < rim ~ >!2}%8 *2")
-  .bank("[KorgDDM110, OberheimDmx]").speed(1.2)
+  .bank("[KorgDDM110, OberheimDmx]").speed(1.2).gain(1)
   .postgain(.25),
 )
 

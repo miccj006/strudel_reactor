@@ -14,9 +14,7 @@ import MasterControls from './components/MasterControls'
 import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons'
 import PreprocessTextArea from './components/PreprocessTextArea'
-import getCycleData from './utils/getCycleData'
-import setCycleValue from './utils/setCycleValue'
-import setCycleInterval from './utils/setCycleInterval'
+import Instruments from './components/Instruments'
 
 let globalEditor = null;
 
@@ -24,12 +22,12 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
+
 export default function StrudelDemo() {
     const hasRun = useRef(false);
     const handlePlay = () => { globalEditor.evaluate() };
     const handleStop = () => { globalEditor.stop() };
     const [songText, setSongText] = useState(stranger_tune);
-    const [cycleData, setCycleData] = useState(getCycleData(songText));
 
     // Demo Effect
     useEffect(() => {
@@ -65,7 +63,6 @@ export default function StrudelDemo() {
                 });
         }
         globalEditor.setCode(songText);
-        setCycleData(getCycleData(songText));
     }, [songText]);
 
 
@@ -94,7 +91,8 @@ export default function StrudelDemo() {
                             <div id="output" />
                         </div>
                         <div className="col-md-4">
-                            <MasterControls cycleData={cycleData} songText={songText} setSongText={setSongText} setCycleValue={setCycleValue} setCycleInterval={setCycleInterval} />
+                            <MasterControls songText={songText} setSongText={setSongText} />
+                            <Instruments songText={songText} setSongText={setSongText} />
                         </div>
                     </div>
                 </div>
