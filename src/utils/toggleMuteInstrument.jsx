@@ -9,8 +9,6 @@ function toggleMuteInstrument(songText, instrument) {
         newName = muteChar + newName
     }
 
-    console.log(rawName + "  " + newName)
-
     newSongText = songText.replaceAll(rawName, newName)
     return newSongText
 }
