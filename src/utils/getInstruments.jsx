@@ -3,8 +3,8 @@ function getInstruments(songText) {
     const instrumentTexts = getInstrumentText(songText);
     const instruments = getInstrumentValues(instrumentTexts);
 
-    console.log(instruments[0].name)
-    return instrumentTexts
+    console.log(instruments[0].gain)
+    return instruments
 }
 
 function getInstrumentText(songText) {
@@ -24,8 +24,18 @@ function getInstrumentValues(instrumentTexts) {
     const instruments = [];
 
     instrumentTexts.forEach((text, index) => {
+        let mute = text[0] == '_' ? true : false;
+        let name = text.slice(0, text.indexOf(':'));
+        if (mute) name = name.slice(1);
+        let gain = text.slice(text.indexOf('.gain(', ')'));
+        let postGain = text.slice(text.indexOf('.postgain(', ')'));
+
         let instrument = {
-            name: text
+            name: name,
+            mute: mute,
+            gain: gain,
+            postGain: postGain,
+            fullText: text
         }
 
         instruments[index] = instrument

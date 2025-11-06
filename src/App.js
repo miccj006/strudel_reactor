@@ -34,11 +34,11 @@ export default function StrudelDemo() {
     const handleStop = () => { globalEditor.stop() };
     const [songText, setSongText] = useState(stranger_tune);
     const [cycleData, setCycleData] = useState(getCycleData(songText));
-    const [instrumentNames, setInstrumentNames] = useState(getInstruments(songText));
+    const [instruments, setInstruments] = useState(getInstruments(songText));
 
     // Set and get updates
     useEffect(() => {
-        setInstrumentNames(getInstruments(songText));
+        setInstruments(getInstruments(songText));
         setCycleData(getCycleData(songText));
     }, [songText]);
 
@@ -105,7 +105,7 @@ export default function StrudelDemo() {
                         </div>
                         <div className="col-md-4">
                             <MasterControls cycleData={cycleData} songText={songText} setSongText={setSongText} setCycleValue={setCycleValue} setCycleInterval={setCycleInterval} />
-                            <Instruments instrumentNames={instrumentNames} />
+                            <Instruments instruments={instruments} />
                         </div>
                     </div>
                 </div>
