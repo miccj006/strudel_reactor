@@ -21,7 +21,7 @@ function Instruments({ instruments }) {
                                 <div className="w-25 m-0 py-3">{instrument.name}</div>
                                 <input className="form-range m-0 py-3" type="range" min="0" max="1" step="0.01" id="volume-range" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)} />
                                 <button className="btn btn-light m-0 mx-3" id="volume-button" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
-                                    <VolumeIcon level={instrument.mute == true ? "mute" : "high"} />
+                                    <VolumeIcon level={instrument.mute === true ? "mute" : "high"} />
                                 </button>
                             </div>
                         </div>
@@ -29,7 +29,7 @@ function Instruments({ instruments }) {
                             <div className="accordion-body">
                                 <strong>{instrument.name}</strong>
                                 <p>{instrument.fullText}</p>
-                                {/*<p>Gain = {instrument.gain}</p>*/}
+                                <p>Gain = {instrument.gain}</p>
                                 {/*<p>Post Gain = {instrument.postGain}</p>*/}
                             </div>
                         </div>
