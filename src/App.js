@@ -105,7 +105,7 @@ export default function StrudelDemo() {
                         </div>
                         <div className="col-md-4">
                             <MasterControls cycleData={cycleData} songText={songText} setSongText={setSongText} setCycleValue={setCycleValue} setCycleInterval={setCycleInterval} />
-                            <Instruments instruments={instruments} />
+                            <Instruments instruments={instruments} songText={songText} setSongText={setSongText} />
                         </div>
                     </div>
                 </div>

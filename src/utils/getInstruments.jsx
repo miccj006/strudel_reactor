@@ -24,18 +24,19 @@ function getInstrumentValues(instrumentTexts) {
     const instruments = [];
 
     instrumentTexts.forEach((text, index) => {
+        let rawName = text.slice(0, text.indexOf(':'));
+        let name = rawName.match(/(?!_)\w+/);
         let mute = text[0] == '_' ? true : false;
-        let name = text.slice(0, text.indexOf(':'));
-        if (mute) name = name.slice(1);
         let gain = text.slice(text.indexOf('gain(') + 5, text.indexOf(')', text.indexOf('gain(')));
         //let postGain = text.slice(text.indexOf('.postgain(', ')'));
 
         let instrument = {
+            rawName: rawName,
             name: name,
             mute: mute,
             gain: gain,
             //postGain: postGain,
-            fullText: text
+            text: text
         }
 
         instruments[index] = instrument
