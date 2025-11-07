@@ -71,7 +71,7 @@ function Instruments({ songText, setSongText }) {
     }
     return (
         <>
-            <div className="accordion rounded shadow p-3 m-2 rounded shadow bg-light flex" id="accordionExample">
+            <div className="accordion rounded shadow p-3 m-2 rounded shadow bg-light-gray flex" id="accordionExample">
                 {instruments.map((instrument, index) => (
                     <div key={index} className="accordion-item shadow-sm">
                         <div className="accordion-header" id={"heading-" + instrument.name} >

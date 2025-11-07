@@ -54,7 +54,7 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
     }
 
     return (
-        <div className="p-3 m-2 rounded shadow bg-light">
+        <div className="p-3 m-2 rounded shadow bg-light-gray">
             <div className="rounded shadow-sm mb-3">
                 <PlayButtons onPlay={onPlay} onStop={onStop} songIsPlaying={songIsPlaying} />
             </div>

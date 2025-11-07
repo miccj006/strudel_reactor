@@ -79,7 +79,7 @@ export default function StrudelDemo() {
 
 
     return (
-        <div className="bg-secondary p-4 row">
+        <div className="bg-gray p-4 row">
             <main>
                 <div className="container-fluid">
                     <div className="row">
