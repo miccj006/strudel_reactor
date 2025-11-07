@@ -37,6 +37,24 @@ export default function StrudelDemo() {
     const [masterVolume, setMasterVolume] = useState(0.2);
     const [masterMute, setMasterMute] = useState(false);
     const [processSong, setProcessSong] = useState(true);
+    const [width, setWidth] = useState(window.innerWidth); // reference from: https://stackoverflow.com/questions/69228336/how-to-call-useeffect-when-browser-is-resized
+    const handleWindowSizeChange = () => {
+        setWidth(window.innerWidth);
+    };
+
+    // Resize canvas upon screen resize
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+
+        const canvas = document.getElementById('roll')
+        const canvasView = document.getElementById('canvas-view')
+        const padding = parseInt(window.getComputedStyle(canvasView).paddingLeft) + parseInt(window.getComputedStyle(canvasView).paddingRight);
+        canvas.width = canvasView.offsetWidth - padding;
+
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    })
 
     // Demo Effect
     useEffect(() => {
@@ -45,31 +63,29 @@ export default function StrudelDemo() {
             console_monkey_patch();
             hasRun.current = true;
             //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
-                //init canvas
-                const canvas = document.getElementById('roll');
-                canvas.width = canvas.width * 2;
-                canvas.height = canvas.height * 2;
-                const drawContext = canvas.getContext('2d');
-                const drawTime = [-2, 2]; // time window of drawn haps
-                globalEditor = new StrudelMirror({
-                    defaultOutput: webaudioOutput,
-                    getTime: () => getAudioContext().currentTime,
-                    transpiler,
-                    root: document.getElementById('editor'),
-                    drawTime,
-                    onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
-                    prebake: async () => {
-                        initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
-                        const loadModules = evalScope(
-                            import('@strudel/core'),
-                            import('@strudel/draw'),
-                            import('@strudel/mini'),
-                            import('@strudel/tonal'),
-                            import('@strudel/webaudio'),
-                        );
-                        await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
-                    },
-                });
+            //init canvas
+            const canvas = document.getElementById('roll');
+            const drawContext = canvas.getContext('2d');
+            const drawTime = [-0.1, 0.1]; // time window of drawn haps
+            globalEditor = new StrudelMirror({
+                defaultOutput: webaudioOutput,
+                getTime: () => getAudioContext().currentTime,
+                transpiler,
+                root: document.getElementById('editor'),
+                drawTime,
+                onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
+                prebake: async () => {
+                    initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
+                    const loadModules = evalScope(
+                        import('@strudel/core'),
+                        import('@strudel/draw'),
+                        import('@strudel/mini'),
+                        import('@strudel/tonal'),
+                        import('@strudel/webaudio'),
+                    );
+                    await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
+                },
+            });
         }
         globalEditor.setCode(processText(songText, masterVolume, masterMute));
         if (songIsPlaying) {
@@ -82,7 +98,7 @@ export default function StrudelDemo() {
         <div className="bg-gray p-4">
             <main>
                 <div className="container-fluid row">
-                    <div className="col-7">
+                    <div className="col-8">
                         <div className="row" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                             <PreprocessTextArea songText={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
@@ -91,14 +107,16 @@ export default function StrudelDemo() {
                             <div id="output" />
                         </div>
                     </div>
-                    <div className="col-5">
+                    <div className="col-4">
                         <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
                             masterMute={masterMute} setMasterMute={setMasterMute}
                             onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
+                        <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
+                            <canvas className="bg-dark rounded shadow-sm" id="roll" ></canvas>
+                        </div>
                         <Instruments songText={songText} setSongText={setSongText} />
                     </div>
                 </div>
-                <canvas id="roll" ></canvas>
             </main >
         </div >
     );
