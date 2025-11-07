@@ -91,20 +91,20 @@ function Instruments({ songText, setSongText }) {
                                 <div className="row m-3">
                                     <div className="col">
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
-                                            <label className="form-check-label" for="exampleRadios1">
+                                            <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios1" + index} value="option1" defaultChecked />
+                                            <label className="form-check-label" for={"exampleRadios1" + index}>
                                                 Style 1
                                             </label>
                                         </div>
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-                                            <label className="form-check-label" for="exampleRadios2">
+                                            <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios2" + index} value="option2" />
+                                            <label className="form-check-label" for={"exampleRadios2" + index}>
                                                 Style 2
                                             </label>
                                         </div>
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled />
-                                            <label className="form-check-label fst-italic" for="exampleRadios3">
+                                            <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios3" + index} value="option3" disabled />
+                                            <label className="form-check-label fst-italic" for={"exampleRadios3" + index}>
                                                 New style coming soon
                                             </label>
                                         </div>
