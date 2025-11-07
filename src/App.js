@@ -41,7 +41,6 @@ export default function StrudelDemo() {
 
     // Demo Effect
     useEffect(() => {
-        console.log(globalEditor)
         if (!hasRun.current) {
             document.addEventListener("d3Data", handleD3Data);
             console_monkey_patch();
@@ -81,7 +80,7 @@ export default function StrudelDemo() {
 
 
     return (
-        <div>
+        <div className="bg-secondary">
             <h2>Strudel Demo</h2>
             <main>
 
@@ -92,9 +91,7 @@ export default function StrudelDemo() {
                         </div>
                         <div className="col-md-4">
                             <nav>
-                                <h4>Master Controls</h4>
-                                <PlayButtons onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} />
-                                <MasterControls songText={songText} setSongText={setSongText} masterVolume={masterVolume}
+                                <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
                                     masterMute={masterMute} setMasterMute={setMasterMute}
                                     onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                             </nav>
