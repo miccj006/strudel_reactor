@@ -79,29 +79,23 @@ export default function StrudelDemo() {
 
 
     return (
-        <div className="bg-gray p-4 row">
+        <div className="bg-gray p-4">
             <main>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                <div className="container-fluid row">
+                    <div className="col-7">
+                        <div className="row" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                             <PreprocessTextArea songText={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
-                        <div className="col-md-4">
-                            <nav>
-                                <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
-                                    masterMute={masterMute} setMasterMute={setMasterMute}
-                                    onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
-                            </nav>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-8 " style={{ maxHeight: '40vh', overflowY: 'auto' }}>
+                        <div className="row" style={{ maxHeight: '45vh', overflowY: 'auto' }}>
                             <div id="editor" />
                             <div id="output" />
                         </div>
-                        <div className="col-md-4">
-                            <Instruments songText={songText} setSongText={setSongText} />
-                        </div>
+                    </div>
+                    <div className="col-5">
+                        <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
+                            masterMute={masterMute} setMasterMute={setMasterMute}
+                            onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
+                        <Instruments songText={songText} setSongText={setSongText} />
                     </div>
                 </div>
                 <canvas id="roll" ></canvas>
