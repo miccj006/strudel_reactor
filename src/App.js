@@ -99,10 +99,10 @@ export default function StrudelDemo() {
             <main>
                 <div className="container-fluid row">
                     <div className="col-8">
-                        <div className="row" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                        <div style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                             <PreprocessTextArea songText={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
-                        <div className="row" style={{ maxHeight: '45vh', overflowY: 'auto' }}>
+                        <div className="rounded shadow" style={{ maxHeight: '45vh', overflowY: 'auto' }}>
                             <div id="editor" />
                             <div id="output" />
                         </div>
