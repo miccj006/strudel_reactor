@@ -71,7 +71,6 @@ function Instruments({ songText, setSongText }) {
     }
     return (
         <>
-            <h4>Instruments</h4>
             <div className="accordion" id="accordionExample">
                 {instruments.map((instrument, index) => (
                     <div key={index} className="accordion-item">
