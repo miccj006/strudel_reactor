@@ -1,7 +1,7 @@
 ﻿import VolumeIcon from '../assets/volume'
 import PlayButtons from '../components/PlayButtons'
 
-function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
+function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
     const cycleData = getCycleData(songText)
     function getCycleData(songText) {
         const cycleData = {
@@ -56,7 +56,7 @@ function MasterControls({ songText, setSongText, masterVolume, onMasterVolumeCha
     return (
         <div className="p-3 m-2 rounded shadow bg-light">
             <div className="rounded shadow-sm mb-3">
-                <PlayButtons />
+                <PlayButtons onPlay={onPlay} onStop={onStop} songIsPlaying={songIsPlaying} />
             </div>
             <div className="input-group rounded shadow-sm bg-white">
                 <div className="input-group-prepstart">
