@@ -36,16 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/*My add-on css*/
-.bg-gray {
-    background-color: rgb(208, 212, 222);
-}
-
-.bg-light-gray {
-    background-color: rgb(232, 233, 243);
-}
-
-.shadow-inner {
-    box-shadow: 1px 1px 10px 2px rgb(153, 154, 182) inset;
-}
