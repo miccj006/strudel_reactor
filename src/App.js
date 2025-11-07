@@ -80,10 +80,8 @@ export default function StrudelDemo() {
 
 
     return (
-        <div className="bg-secondary">
-            <h2>Strudel Demo</h2>
+        <div className="bg-secondary p-4 row">
             <main>
-
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
@@ -98,7 +96,7 @@ export default function StrudelDemo() {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                        <div className="col-md-8 " style={{ maxHeight: '40vh', overflowY: 'auto' }}>
                             <div id="editor" />
                             <div id="output" />
                         </div>
@@ -107,7 +105,7 @@ export default function StrudelDemo() {
                         </div>
                     </div>
                 </div>
-                <canvas id="roll"></canvas>
+                <canvas id="roll" ></canvas>
             </main >
         </div >
     );
