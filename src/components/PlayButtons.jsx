@@ -1,6 +1,6 @@
 function PlayButtons({ onPlay, onStop, songIsPlaying }) {
-    const playButton = <button id="play" className="btn btn-primary py-3" onClick={onPlay}>Play</button>
-    const stopButton = <button id="stop" className="btn btn-danger py-3+" onClick={onStop}>Stop</button>
+    const playButton = <button id="play" className="btn btn-primary py-3 rounded shadow" onClick={onPlay}>Play</button>
+    const stopButton = <button id="stop" className="btn btn-danger py-3 rounded shadow" onClick={onStop}>Stop</button>
 
     const getButton = () => {
         return songIsPlaying ? stopButton : playButton
