@@ -11,7 +11,6 @@ import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 
 import MasterControls from './components/MasterControls';
-import PlayButtons from './components/PlayButtons';
 import PreprocessTextArea from './components/PreprocessTextArea';
 import Instruments from './components/Instruments';
 import processText from './util/processText';

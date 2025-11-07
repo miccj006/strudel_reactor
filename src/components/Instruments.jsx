@@ -1,4 +1,4 @@
-﻿import VolumeIcon from '../assets/volume'
+﻿import VolumeIcon from '../assets/VolumeIcon'
 
 function Instruments({ songText, setSongText }) {
     const instruments = getInstruments(songText)
@@ -71,16 +71,17 @@ function Instruments({ songText, setSongText }) {
     }
     return (
         <>
-            <div className="accordion" id="accordionExample">
+            <div className="accordion rounded shadow" id="accordionExample">
                 {instruments.map((instrument, index) => (
                     <div key={index} className="accordion-item">
                         <div className="accordion-header" id={"heading-" + instrument.name} >
                             <div className="accordion-button collapsed py-0" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse-" + instrument.name} aria-expanded="false" aria-controls={"collapse-" + instrument.name}>
                                 <div className="w-25 m-0 py-3">{instrument.name}</div>
-                                <input className="form-range m-0 py-3" type="range" min="0" max="1" step="0.01" id="volume-range" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)} />
-                                <button className="btn btn-light m-0 mx-3" id="volume-button" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)} onClick={(e) => setSongText(toggleMuteInstrument(songText, instrument))}>
-                                    <VolumeIcon volume={1} maxVolume={1} isMute={instrument.mute} />
-                                </button>
+                                {/*<input className="form-range m-0 py-3" type="range" min="0" max="1" step="0.01" id="volume-range" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)} />*/}
+                                {/*<button className="btn btn-light m-0 mx-3" id="volume-button" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)} onClick={(e) => setSongText(toggleMuteInstrument(songText, instrument))}>*/}
+                                {/*    <VolumeIcon volume={1} maxVolume={1} isMute={instrument.mute} />*/}
+                                {/*</button>*/}
+                                VOLUM SLIDER TEMP REMOVED
                             </div>
                         </div>
                         <div id={"collapse-" + instrument.name} className="accordion-collapse collapse" aria-labelledby={"heading-" + instrument.name} data-bs-parent="#accordionExample">
