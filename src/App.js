@@ -34,7 +34,7 @@ export default function StrudelDemo() {
         SetSongIsPlaying(false);
     };
     const [songText, setSongText] = useState(stranger_tune);
-    const [masterVolume, setMasterVolume] = useState(1);
+    const [masterVolume, setMasterVolume] = useState(0.2);
     const [masterMute, setMasterMute] = useState(false);
     const [processSong, setProcessSong] = useState(true);
 

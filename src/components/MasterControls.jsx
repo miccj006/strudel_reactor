@@ -1,5 +1,5 @@
 ﻿import PlayButtons from '../components/PlayButtons'
-import VolumeControl from './VolumeSliderControl'
+import VolumeSliderControl from './VolumeSliderControl'
 
 function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
     const cycleData = getCycleData(songText)
@@ -72,7 +72,7 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
             </div>
 
             <div className="row align-items-center m-0 mt-3 gap-3">
-                <VolumeControl volume={masterVolume} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
+                <VolumeSliderControl volume={masterVolume} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
         </div>
     );
