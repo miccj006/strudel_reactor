@@ -1,5 +1,6 @@
-﻿import VolumeIcon from '../assets/volume'
-import PlayButtons from '../components/PlayButtons'
+﻿import PlayButtons from '../components/PlayButtons'
+import CycleField from '../components/CycleField'
+import VolumeSliderControl from './VolumeSliderControl'
 
 function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
     const cycleData = getCycleData(songText)
@@ -54,28 +55,16 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
     }
 
     return (
-        <div className="p-3 m-2 rounded shadow bg-light">
+        <div className="p-3 m-2 rounded shadow bg-light-gray">
             <div className="rounded shadow-sm mb-3">
                 <PlayButtons onPlay={onPlay} onStop={onStop} songIsPlaying={songIsPlaying} />
             </div>
             <div className="input-group rounded shadow-sm bg-white">
-                <div className="input-group-prepstart">
-                    <button className="btn  btn-outline-primary input-group-text" id="cycle-label" onClick={(e) => setSongText(setCycleInterval(songText, cycleData))}>Set {cycleData.isPerMinute ? "CPM" : "CPS"} ⇅</button>
-                </div>
-                <input type="text" className="form-control" id="cycle-text-input" placeholder="Insert cycle value here" aria-label="cycle" aria-describedby="cycle-label" value={cycleData.cycleText} onChange={(e) => setSongText(setCycleValue(songText, cycleData, e.target.value))} />
-                <div className="input-group-prepend">
-                    <span className="input-group-text text-muted" id="cycle-label">CPS = {!isNaN(cycleData.value) ? (Math.round(cycleData.value / (cycleData.isPerMinute ? 60 : 1) * 100) / 100) : "?"}</span>
-                </div>
-                <div className="input-group-prepend">
-                    <span className="input-group-text text-muted" id="cycle-label">CPM = {!isNaN(cycleData.value) ? (Math.round(cycleData.value * (cycleData.isPerMinute ? 1 : 60) * 100) / 100) : "?"}</span>
-                </div>
+                <CycleField songText={songText} setSongText={setSongText} cycleData={cycleData} setCycleValue={setCycleValue} setCycleInterval={setCycleInterval} />
             </div>
 
             <div className="row align-items-center m-0 mt-3 gap-3">
-                <input type="range" className="form-range col p-3 h-auto bg-white rounded shadow-sm" min="0" max="1" step="0.01" id="volume-range" value={masterVolume} onChange={(e) => onMasterVolumeChange(e.target.value)} onMouseUp={setProcessSong} />
-                <button className="btn btn-white col-1 w-auto h-auto bg-white rounded shadow-sm" id="master-volume-button" onClick={(e) => setMasterMute(!masterMute)} >
-                    <VolumeIcon volume={masterVolume} maxVolume={1} isMute={masterMute} />
-                </button>
+                <VolumeSliderControl volume={masterVolume} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
         </div>
     );
