@@ -95,14 +95,18 @@ export default function StrudelDemo() {
 
 
     return (
-        <div className="bg-gray p-4 vh-100 vw-100">
-            <main>
+        <div className="bg-gray d-flex flex-column min-vh-100">
+            <header className="w-100 bg-light-gray text-muted p-2 mb-4 px-4 shadow" >
+                <div className="h4 m-0">Music Mixer</div>
+                <div className="h6 mb-1 fst-italic text-secondary">Powered by Strudle</div>
+            </header>
+            <main className="p-4 pt-0">
                 <div className="container-fluid row">
                     <div className="col-8">
                         <div style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                             <PreprocessTextArea songText={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
-                        <div className="rounded shadow" style={{ maxHeight: '45vh', overflowY: 'auto' }}>
+                        <div className="rounded shadow" style={{ maxHeight: '40vh', overflowY: 'auto' }}>
                             <div id="editor" />
                             <div id="output" />
                         </div>
@@ -118,6 +122,10 @@ export default function StrudelDemo() {
                     </div>
                 </div>
             </main >
+            <footer className="w-100 bg-light-gray text-muted mt-auto p-2 text-center" >
+                <div className="h5 m-0">Christian Micallef</div>
+                <div className="h6">University of South Australia - 2025</div>
+            </footer>
         </div >
     );
 }
