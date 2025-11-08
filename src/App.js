@@ -97,8 +97,8 @@ export default function StrudelDemo() {
     return (
         <div className="bg-gray d-flex flex-column min-vh-100">
             <header className="w-100 bg-light-gray text-muted p-2 mb-4 px-4 shadow" >
-                <div className="h4 m-0">Music Mixer</div>
-                <div className="h6 mb-1 fst-italic text-secondary">Powered by Strudle</div>
+                <div className="h4 m-0"><b>Music Mixer</b></div>
+                <div className="h6 mb-1 mx-3 fst-italic text-secondary">Powered by Strudle</div>
             </header>
             <main className="p-4 pt-0">
                 <div className="container-fluid row">
