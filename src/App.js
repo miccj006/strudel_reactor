@@ -13,7 +13,7 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import MasterControls from './components/MasterControls';
 import PreprocessTextArea from './components/PreprocessTextArea';
 import Instruments from './components/Instruments';
-import processText from './util/processText';
+import processText from './utils/processText';
 
 let globalEditor = null;
 
