@@ -24,3 +24,8 @@ code {
 .shadow-inner {
     box-shadow: 1px 1px 10px 2px rgb(153, 154, 182) inset !important;
 }
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    color: inherit !important;
+}

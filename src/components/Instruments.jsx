@@ -22,7 +22,6 @@ function Instruments({ songText, setSongText }) {
             }
             matchCount += 1
             
-            console.log(originalGainText, matchCount)
             return newGainText
         })
 
@@ -46,11 +45,11 @@ function Instruments({ songText, setSongText }) {
     }
     return (
         <>
-            <div className="accordion rounded shadow p-3 m-2 rounded shadow bg-light-gray flex" id="accordionExample">
+            <div className="accordion rounded shadow p-3 m-2 rounded shadow bg-light-gray flex" id="accordionInstruments">
                 {instruments.map((instrument, index) => (
                     <div key={index} className="accordion-item shadow-sm">
-                        <div className="accordion-header" id={"heading-" + instrument.name} >
-                            <div className="accordion-button collapsed py-0" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse-" + instrument.name} aria-expanded="false" aria-controls={"collapse-" + instrument.name}>
+                        <h2 className="accordion-header" id={"panelsStayOpen-heading-" + instrument.name} >
+                            <div className="accordion-button collapsed py-0" type="button" data-bs-toggle="collapse" data-bs-target={"#panelsStayOpen-collapse-" + instrument.name} aria-expanded="false" aria-controls={"panelsStayOpen-collapse-" + instrument.name}>
                                 <div className="col-2 m-0 py-3 h6"><b>{instrument.name}</b></div>
                                 <div className='mx-1'></div>
                                 {/*<div className="row col mx-3 align-content-center" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>*/}
@@ -61,12 +60,12 @@ function Instruments({ songText, setSongText }) {
                                 {/*</div>*/}
                                 <div className='mx-1'></div>
                             </div>
-                        </div>
-                        <div id={"collapse-" + instrument.name} className="accordion-collapse collapse bg-light" aria-labelledby={"heading-" + instrument.name} data-bs-parent="#accordionExample">
+                        </h2>
+                        <div id={"panelsStayOpen-collapse-" + instrument.name} className="accordion-collapse collapse bg-light" aria-labelledby={"panelsStayOpen-heading-" + instrument.name} >
                             <div className="accordion-body">
                                 <div className="row">
                                     <div className="col m-0">
-                                        <h6 className="p-0">Gain sliders</h6>
+                                        <h6 className="p-0 fst-italic"><b>Gain sliders</b></h6>
                                             {instrument.gains.map((gain, gainIndex) => (
                                                 <div className="row my-2 align-content-center gap-2 m-0">
                                                     <VolumeSliderControl volume={gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
@@ -109,6 +108,7 @@ function Instruments({ songText, setSongText }) {
                                     {/*    </div>*/}
                                     {/*</div>*/}
                                     <div className="col">
+                                        <h6 className="p-0 fst-italic"><b>Effects</b></h6>
                                         <div className="form-check form-switch">
                                             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
                                             <label className="form-check-label" for="flexSwitchCheckDefault">Bass Boost</label>
@@ -116,8 +116,6 @@ function Instruments({ songText, setSongText }) {
                                     </div>
                                 </div>
 
-                                <p>{instrument.text}</p>
-                                <p>Gain = {instrument.gain}</p>
                                 {/*<p>Post Gain = {instrument.postGain}</p>*/}
                             </div>
                         </div>
