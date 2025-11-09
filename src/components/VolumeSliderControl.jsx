@@ -1,11 +1,17 @@
 import VolumeButton from './VolumeButton'
-function VolumeControl({ volume, maxVolume, setMute, isMute, onVolumeChange, setProcessSong }) {
+function VolumeSliderControl({ volume, maxVolume, setMute, isMute, onVolumeChange, setProcessSong }) {
     return (
-        <>
-            <input type="range" className="form-range col px-3 py-2 h-auto bg-white rounded shadow-sm" min="0" max={maxVolume} step="0.01" id="volume-range" value={volume} onChange={(e) => onVolumeChange(e.target.value)} onMouseUp={setProcessSong} />
-            <VolumeButton volume={volume} maxVolume={maxVolume} setMute={setMute} isMute={isMute} />
-        </>
+        <div className="row rounded shadow-sm bg-white m-0 p-0">
+            <div className="w-auto m-0 p-0">
+                <VolumeButton volume={volume} maxVolume={maxVolume} setMute={setMute} isMute={isMute} />
+            </div>
+
+            <div className="col row p-1 m-0 vol-item">
+                <input type="range" className="form-range col" min="0" max={maxVolume} step="0.01" id="volume-range" value={volume} onChange={(e) => onVolumeChange(e.target.value)} onMouseUp={setProcessSong} />
+                <div className="col-1 text-muted vol-text w-auto">{parseFloat(volume).toFixed(2)}</div>
+            </div>
+        </div>
     );
 }
 
-export default VolumeControl;
+export default VolumeSliderControl;

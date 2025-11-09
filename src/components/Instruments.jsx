@@ -67,7 +67,7 @@ function Instruments({ songText, setSongText }) {
                                     <div className="col m-0">
                                         <h6 className="p-0 fst-italic"><b>Gain sliders</b></h6>
                                             {instrument.gains.map((gain, gainIndex) => (
-                                                <div className="row my-2 align-content-center gap-2 m-0">
+                                                <div className="row my-2 align-content-center gap-1 m-0">
                                                     <VolumeSliderControl volume={gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
                                                         onVolumeChange={(newGain) => setSongText(setInstrumentGain(songText, instrument, gainIndex, newGain))} setProcessSong={(e) => ''} />
                                                 </div>
