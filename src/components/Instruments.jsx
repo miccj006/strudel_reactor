@@ -1,4 +1,5 @@
 ﻿import VolumeSliderControl from '../components/VolumeSliderControl'
+import getInstruments from '../utils/getInstruments';
 
 function Instruments({ songText, setSongText }) {
     const instruments = getInstruments(songText)
@@ -10,49 +11,23 @@ function Instruments({ songText, setSongText }) {
         let accordionButton = e.target.closest('.accordion-button');
         accordionButton.setAttribute('data-bs-toggle', 'collapse')
     }
-    function getInstruments(songText) {
-        function getInstrumentText(songText) {
-            // I used "https://regex101.com/" to make this regex
-            // This regex captures an instrument found within a strudle song text code
-            const instrumentRegex = /\n\s+?(?=\b[\w-]+:)[\s\S]+?(?=(\)[\s\n]*[/\w]))\)/g
-            const instrumentTexts = songText.match(instrumentRegex);
+    
+    function setInstrumentGain(songText, instrument, gainIndex, newGain) {
+        let matchCount = 0;
 
-            instrumentTexts.forEach((text, index) => {
-                instrumentTexts[index] = text.trim();
-            })
+        let newInstrument = instrument.text.replace(/\.gain\(([\d.]+)\)/g, (originalGainText, captureGroup) => {
+            let newGainText = originalGainText
+            if (matchCount == gainIndex) {
+                newGainText = `.gain(${newGain})`
+            }
+            matchCount += 1
+            
+            console.log(originalGainText, matchCount)
+            return newGainText
+        })
 
-            return instrumentTexts
-        }
-        function getInstrumentValues(instrumentTexts) {
-            const instruments = [];
-
-            instrumentTexts.forEach((text, index) => {
-                let rawName = text.slice(0, text.indexOf(':'));
-                let name = rawName.match(/(?!_)\w+/);
-                let mute = text[0] == '_' ? true : false;
-                let gain = text.slice(text.indexOf('gain(') + 5, text.indexOf(')', text.indexOf('gain(')));
-                //let postGain = text.slice(text.indexOf('.postgain(', ')'));
-
-                let instrument = {
-                    rawName: rawName,
-                    name: name,
-                    mute: mute,
-                    gain: gain,
-                    //postGain: postGain,
-                    text: text
-                }
-
-                instruments[index] = instrument
-            })
-
-            return instruments
-        }
-
-        const instrumentTexts = getInstrumentText(songText);
-        const instruments = getInstrumentValues(instrumentTexts);
-
-        console.log(instruments[0].gain)
-        return instruments
+        let newSongText = songText.replaceAll(instrument.text, newInstrument);
+        return newSongText
     }
 
     function toggleMuteInstrument(songText, instrument) {
@@ -83,7 +58,10 @@ function Instruments({ songText, setSongText }) {
                                 {/*    <VolumeIcon volume={1} maxVolume={1} isMute={instrument.mute} />*/}
                                 {/*</button>*/}
                                 <div className="row col mx-3 align-content-center" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
-                                    <VolumeSliderControl volume={instrument.gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute} onVolumeChange={(e) => ''} setProcessSong={(e) => ''} />
+                                    {instrument.gains.map((gain, gainIndex) => (
+                                        <VolumeSliderControl volume={gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
+                                            onVolumeChange={(newGain) => setSongText(setInstrumentGain(songText, instrument, gainIndex, newGain))} setProcessSong={(e) => ''} />
+                                    ))}
                                 </div>
                                 <div className='mx-1'></div>
                             </div>
