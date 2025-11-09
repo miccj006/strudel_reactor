@@ -118,7 +118,8 @@ export default function StrudelDemo() {
                             masterMute={masterMute} setMasterMute={setMasterMute}
                             onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
                         <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
-                            <canvas className="bg-dark rounded shadow-sm" id="roll" ></canvas>
+                            <h6 className="position-absolute p-2 mx-1 text-secondary z-1"><b>Piano View</b></h6>
+                            <canvas className="bg-dark rounded shadow-sm z-0" id="roll"></canvas>
                         </div>
                         <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} />
                     </div>
