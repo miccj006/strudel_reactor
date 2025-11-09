@@ -83,7 +83,7 @@ function Instruments({ songText, setSongText }) {
                                 {/*    <VolumeIcon volume={1} maxVolume={1} isMute={instrument.mute} />*/}
                                 {/*</button>*/}
                                 <div className="row col mx-3 align-content-center" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
-                                        <VolumeSliderControl volume={instrument.gain} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute} onVolumeChange={(e) => ''} setProcessSong={(e) => ''} />
+                                    <VolumeSliderControl volume={instrument.gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute} onVolumeChange={(e) => ''} setProcessSong={(e) => ''} />
                                 </div>
                                 <div className='mx-1'></div>
                             </div>

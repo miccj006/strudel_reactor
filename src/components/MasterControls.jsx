@@ -64,7 +64,7 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
             </div>
 
             <div className="row align-items-center m-0 mt-3 gap-3">
-                <VolumeSliderControl volume={masterVolume} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
+                <VolumeSliderControl volume={masterVolume} maxVolume={1} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
         </div>
     );
