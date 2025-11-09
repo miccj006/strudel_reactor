@@ -63,8 +63,8 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
                 <CycleField songText={songText} setSongText={setSongText} cycleData={cycleData} setCycleValue={setCycleValue} setCycleInterval={setCycleInterval} />
             </div>
 
-            <div className="row align-items-center m-0 mt-3 gap-3">
-                <VolumeSliderControl volume={masterVolume} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
+            <div className="row align-items-center m-0 mt-3 gap-1">
+                <VolumeSliderControl volume={masterVolume} maxVolume={1} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
         </div>
     );

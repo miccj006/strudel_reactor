@@ -1,8 +1,8 @@
 import VolumeIcon from '../assets/VolumeIcon'
-function VolumeButton({ volume, setMute, isMute }) {
+function VolumeButton({ volume, maxVolume, setMute, isMute }) {
     return (
-        <button className="btn btn-white col-1 w-auto h-auto bg-white rounded shadow-sm" id="master-volume-button" onClick={(e) => setMute(!isMute)} >
-            <VolumeIcon volume={volume} maxVolume={1} isMute={isMute} />
+        <button className="vol-item btn btn-white bg-white rounded" id="master-volume-button" onClick={(e) => setMute(!isMute)} >
+            <VolumeIcon volume={volume} maxVolume={maxVolume} isMute={isMute} />
         </button>
     );
 }

@@ -13,7 +13,8 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import MasterControls from './components/MasterControls';
 import PreprocessTextArea from './components/PreprocessTextArea';
 import Instruments from './components/Instruments';
-import processText from './util/processText';
+import getInstruments from './utils/getInstruments';
+import processText from './utils/processText';
 
 let globalEditor = null;
 
@@ -37,6 +38,7 @@ export default function StrudelDemo() {
     const [masterVolume, setMasterVolume] = useState(0.2);
     const [masterMute, setMasterMute] = useState(false);
     const [processSong, setProcessSong] = useState(true);
+    const [instruments, setInstruments] = useState(getInstruments(songText));
     const [width, setWidth] = useState(window.innerWidth); // reference from: https://stackoverflow.com/questions/69228336/how-to-call-useeffect-when-browser-is-resized
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
@@ -118,7 +120,7 @@ export default function StrudelDemo() {
                         <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
                             <canvas className="bg-dark rounded shadow-sm" id="roll" ></canvas>
                         </div>
-                        <Instruments songText={songText} setSongText={setSongText} />
+                        <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} />
                     </div>
                 </div>
             </main >
