@@ -1,7 +1,7 @@
 ﻿import VolumeSliderControl from '../components/VolumeSliderControl'
 import getInstruments from '../utils/getInstruments';
 
-function Instruments({ songText, setSongText }) {
+function Instruments({ songText, setSongText, setProcessSong }) {
     const instruments = getInstruments(songText)
     function DisableAccordion(e) {
         let accordionButton = e.target.closest('.accordion-button');
@@ -59,6 +59,10 @@ function Instruments({ songText, setSongText }) {
                                 {/*    ))}*/}
                                 {/*</div>*/}
                                 <div className='mx-1'></div>
+                                <div className="row col mx-3 lign-content-center gap-1 m-0 mx-5" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
+                                    <VolumeSliderControl volume={0.25} maxVolume={1} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
+                                        onVolumeChange={(e) => setSongText(setInstrumentGain(songText, instrument, 0, 0.5))} setProcessSong={setProcessSong} />
+                                </div>
                             </div>
                         </h2>
                         <div id={"panelsStayOpen-collapse-" + instrument.name} className="accordion-collapse collapse bg-light" aria-labelledby={"panelsStayOpen-heading-" + instrument.name} >
@@ -69,7 +73,7 @@ function Instruments({ songText, setSongText }) {
                                             {instrument.gains.map((gain, gainIndex) => (
                                                 <div className="row my-2 align-content-center gap-1 m-0">
                                                     <VolumeSliderControl volume={gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
-                                                        onVolumeChange={(newGain) => setSongText(setInstrumentGain(songText, instrument, gainIndex, newGain))} setProcessSong={(e) => ''} />
+                                                        onVolumeChange={(newGain) => setSongText(setInstrumentGain(songText, instrument, gainIndex, newGain))} setProcessSong={setProcessSong} />
                                                 </div>
                                             ))}
                                         </div>

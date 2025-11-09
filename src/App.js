@@ -120,7 +120,7 @@ export default function StrudelDemo() {
                         <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
                             <canvas className="bg-dark rounded shadow-sm" id="roll" ></canvas>
                         </div>
-                        <Instruments songText={songText} setSongText={setSongText} />
+                        <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} />
                     </div>
                 </div>
             </main >
