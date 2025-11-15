@@ -1,7 +1,5 @@
 function processText(songText, masterVolume, masterMute, instruments, instrumentMasterVolumes) {
     let newSongText = songText
-    console.log(instrumentMasterVolumes)
-    console.log(instruments[0])
 
     // Instrument Master Volume
     for (let index = 0; index < instruments.length; index++) {
@@ -12,11 +10,6 @@ function processText(songText, masterVolume, masterMute, instruments, instrument
         })
 
         newSongText = newSongText.replaceAll(instruments[index].text, newInstrumentVolumes);
-
-        if (index == 0) {
-            //console.log(instruments[0].text)
-            //console.log(newInstrumentVolumes)
-        }
     }
 
 

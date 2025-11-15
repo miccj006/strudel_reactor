@@ -17,7 +17,10 @@ function getInstruments(songText) {
         instrumentTexts.forEach((text, index) => {
             let rawName = text.slice(0, text.indexOf(':'));
             let name = rawName.match(/(?!_)\w+/);
-            let gains = text.match(/\.gain\(([\d.]+)\)/g).map(match => match.match(/[\d.]*?(?=\))/));
+            let gains = text.match(/\.gain\(([\d.]+)\)/g)
+            if (gains) {
+                gains = gains.map(match => match.match(/[\d.]*?(?=\))/));
+            }
             let mute = text[0] == '_' ? true : false;
 
             let instrument = {

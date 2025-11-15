@@ -8,7 +8,6 @@ function VolumeButton({ volume, maxVolume, setMute, isMute, setProcessSong }) {
         }
     }
     function handleMute() {
-        console.log('buttonMuteClick')
         setMute(!isMute)
         setProcessSong()
     }
