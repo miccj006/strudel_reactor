@@ -98,7 +98,7 @@ export default function StrudelDemo() {
             });
         }
         globalEditor.setCode(processText(songText, masterVolume, masterMute, instruments, instrumentMasterVolumes));
-        if (songIsPlaying) {
+        if (songIsPlaying && processSong) {
             handlePlay()
         }
     }, [songText, processSong, masterMute]);
