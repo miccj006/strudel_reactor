@@ -5,34 +5,38 @@ function getInstruments(songText) {
         const instrumentRegex = /\n\s+?(?=\b[\w-]+:)[\s\S]+?(?=(\)[\s\n]*[/\w]))\)/g
         const instrumentTexts = songText.match(instrumentRegex);
 
-        instrumentTexts.forEach((text, index) => {
-            instrumentTexts[index] = text.trim();
-        })
+        if (instrumentTexts) {
+            instrumentTexts.forEach((text, index) => {
+                instrumentTexts[index] = text.trim();
+            })
+        }
 
         return instrumentTexts
     }
     function getInstrumentValues(instrumentTexts) {
         const instruments = [];
 
-        instrumentTexts.forEach((text, index) => {
-            let rawName = text.slice(0, text.indexOf(':'));
-            let name = rawName.match(/(?!_)\w+/);
-            let gains = text.match(/\.gain\(([\d.]+)\)/g)
-            if (gains) {
-                gains = gains.map(match => match.match(/[\d.]*?(?=\))/));
-            }
-            let mute = text[0] == '_' ? true : false;
+        if (instrumentTexts) {
+            instrumentTexts.forEach((text, index) => {
+                let rawName = text.slice(0, text.indexOf(':'));
+                let name = rawName.match(/(?!_)\w+/);
+                let gains = text.match(/\.gain\(([\d.]+)\)/g)
+                if (gains) {
+                    gains = gains.map(match => match.match(/[\d.]*?(?=\))/));
+                }
+                let mute = text[0] == '_' ? true : false;
 
-            let instrument = {
-                rawName: rawName,
-                name: name,
-                mute: mute,
-                gains: gains,
-                text: text
-            }
+                let instrument = {
+                    rawName: rawName,
+                    name: name,
+                    mute: mute,
+                    gains: gains,
+                    text: text
+                }
             
-            instruments[index] = instrument
-        })
+                instruments[index] = instrument
+            })
+        }
 
         return instruments
     }
