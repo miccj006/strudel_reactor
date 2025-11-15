@@ -1,7 +1,7 @@
 import VolumeButton from './VolumeButton'
 function VolumeSliderControl({ volume, maxVolume, setMute, isMute, onVolumeChange, setProcessSong }) {
-    const volumeButtonEnabled = <div className="w-auto m-0 p-0"><VolumeButton volume={volume} maxVolume={maxVolume} setMute={setMute} isMute={isMute} /></div>
-    const volumeButtonDisabled = <div className="w-auto m-0 p-0"><VolumeButton volume={volume} maxVolume={maxVolume} isMute={isMute} /></div>
+    const volumeButtonEnabled = <div className="w-auto m-0 p-0"><VolumeButton volume={volume} maxVolume={maxVolume} setMute={setMute} isMute={isMute} setProcessSong={setProcessSong} /></div>
+    const volumeButtonDisabled = <div className="w-auto m-0 p-0"><VolumeButton volume={volume} maxVolume={maxVolume} isMute={isMute} setProcessSong={setProcessSong} /></div>
     function handleButton() {
         if (isMute === null) {
             return volumeButtonDisabled

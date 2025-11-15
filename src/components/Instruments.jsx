@@ -49,6 +49,10 @@ function Instruments({ songText, setSongText, setProcessSong, instrumentMasterVo
         volumes[instrumentIndex] = newVolume
         setInstrumentMasterVolumes(volumes)
 
+        //// DEBUG
+        //console.log('setInstrumentsMasterVolume')
+        //console.log(volumes)
+
     }
     return (
         <>

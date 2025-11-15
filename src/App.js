@@ -68,6 +68,7 @@ export default function StrudelDemo() {
 
     // Demo Effect
     useEffect(() => {
+        setInstruments(getInstruments(songText))
         if (!hasRun.current) {
             document.addEventListener("d3Data", handleD3Data);
             console_monkey_patch();
@@ -98,10 +99,17 @@ export default function StrudelDemo() {
             });
         }
         globalEditor.setCode(processText(songText, masterVolume, masterMute, instruments, instrumentMasterVolumes));
-        if (songIsPlaying && processSong) {
+    }, [songText, processSong, masterMute]);
+
+    useEffect(() => {
+        //globalEditor.setCode(processText(songText, masterVolume, masterMute, instruments, instrumentMasterVolumes));
+
+        if (songIsPlaying) {
             handlePlay()
         }
-    }, [songText, processSong, masterMute]);
+
+        setProcessSong(false)
+    }, [processSong]);
 
 
     return (
