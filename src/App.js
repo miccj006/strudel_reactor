@@ -27,8 +27,12 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
     const [songIsPlaying, SetSongIsPlaying] = useState(false);
     const handlePlay = () => {
-        globalEditor.evaluate()
-        SetSongIsPlaying(true);
+        if (songText.length > 0) {
+            globalEditor.evaluate()
+            SetSongIsPlaying(true);
+        } else {
+            alert("Song text is empty, please add some code to play.")
+        }
     };
     const handleStop = () => {
         globalEditor.stop()

@@ -40,6 +40,7 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
             const cycleType = cycleData.isPerMinute ? 'setcpm' : 'setcps';
             const newCycleType = cycleData.isPerMinute ? 'setcps' : 'setcpm';
             newSongText = songText.replaceAll(cycleType, newCycleType)
+            setProcessSong(true)
         }
         return newSongText
     }
@@ -50,6 +51,7 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
             const cycleType = cycleData.isPerMinute ? 'setcpm' : 'setcps';
             const newFullText = `${cycleType}(${newCycleText})`
             newSongText = songText.replaceAll(cycleData.fullText, newFullText)
+            setProcessSong(true)
         }
         return newSongText
     }
