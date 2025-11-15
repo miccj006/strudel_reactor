@@ -1,7 +1,8 @@
 ﻿import VolumeSliderControl from '../components/VolumeSliderControl'
 import getInstruments from '../utils/getInstruments';
 
-function Instruments({ songText, setSongText, setProcessSong }) {
+function Instruments({ songText, setSongText, setProcessSong, instrumentMasterVolumes, setInstrumentMasterVolumes
+ }) {
     const instruments = getInstruments(songText)
     function DisableAccordion(e) {
         let accordionButton = e.target.closest('.accordion-button');
@@ -43,6 +44,12 @@ function Instruments({ songText, setSongText, setProcessSong }) {
         newSongText = songText.replaceAll(rawName, newName)
         return newSongText
     }
+    function setInstrumentMasterVolume(instrumentIndex, newVolume) {
+        let volumes = [...instrumentMasterVolumes]
+        volumes[instrumentIndex] = newVolume
+        setInstrumentMasterVolumes(volumes)
+
+    }
     return (
         <>
             <div className="accordion rounded shadow p-3 m-2 rounded shadow bg-light-gray flex" id="accordionInstruments">
@@ -52,16 +59,9 @@ function Instruments({ songText, setSongText, setProcessSong }) {
                             <div className="accordion-button collapsed py-0" type="button" data-bs-toggle="collapse" data-bs-target={"#panelsStayOpen-collapse-" + instrument.name} aria-expanded="false" aria-controls={"panelsStayOpen-collapse-" + instrument.name}>
                                 <div className="col-2 m-0 py-3 h6"><b>{instrument.name}</b></div>
                                 <div className='mx-1'></div>
-                                {/*<div className="row col mx-3 align-content-center" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>*/}
-                                {/*    {instrument.gains.map((gain, gainIndex) => (*/}
-                                {/*        <VolumeSliderControl volume={gain} maxVolume={2} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}*/}
-                                {/*            onVolumeChange={(newGain) => setSongText(setInstrumentGain(songText, instrument, gainIndex, newGain))} setProcessSong={(e) => ''} />*/}
-                                {/*    ))}*/}
-                                {/*</div>*/}
-                                <div className='mx-1'></div>
                                 <div className="row col mx-3 lign-content-center gap-1 m-0 mx-5" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
-                                    <VolumeSliderControl volume={0.25} maxVolume={1} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
-                                        onVolumeChange={(e) => setSongText(setInstrumentGain(songText, instrument, 0, 0.5))} setProcessSong={setProcessSong} />
+                                    <VolumeSliderControl volume={instrumentMasterVolumes[index]} maxVolume={1} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
+                                        onVolumeChange={(newVolume) => setInstrumentMasterVolume(index, newVolume)} setProcessSong={setProcessSong} />
                                 </div>
                             </div>
                         </h2>

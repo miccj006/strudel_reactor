@@ -39,6 +39,14 @@ export default function StrudelDemo() {
     const [masterMute, setMasterMute] = useState(false);
     const [processSong, setProcessSong] = useState(true);
     const [instruments, setInstruments] = useState(getInstruments(songText));
+    const getInstrumentMasterVolumes = () => {
+        let volumes = []
+        for (let index = 0; index < instruments.length; index++) {
+            volumes[index] = 1
+        }
+        return volumes
+    };
+    const [instrumentMasterVolumes, setInstrumentMasterVolumes] = useState(getInstrumentMasterVolumes())
     const [width, setWidth] = useState(window.innerWidth); // reference from: https://stackoverflow.com/questions/69228336/how-to-call-useeffect-when-browser-is-resized
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
@@ -89,7 +97,7 @@ export default function StrudelDemo() {
                 },
             });
         }
-        globalEditor.setCode(processText(songText, masterVolume, masterMute));
+        globalEditor.setCode(processText(songText, masterVolume, masterMute, instruments, instrumentMasterVolumes));
         if (songIsPlaying) {
             handlePlay()
         }
@@ -121,7 +129,7 @@ export default function StrudelDemo() {
                             <h6 className="position-absolute p-2 mx-1 text-secondary z-1"><b>Piano View</b></h6>
                             <canvas className="bg-dark rounded shadow-sm z-0" id="roll"></canvas>
                         </div>
-                        <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} />
+                        <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} instrumentMasterVolumes={instrumentMasterVolumes} setInstrumentMasterVolumes={setInstrumentMasterVolumes} />
                     </div>
                 </div>
             </main >
