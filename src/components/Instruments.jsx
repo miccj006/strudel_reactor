@@ -63,7 +63,7 @@ function Instruments({ songText, setSongText, setProcessSong, instrumentMasterVo
                             <div className="accordion-button collapsed py-0" type="button" data-bs-toggle="collapse" data-bs-target={"#panelsStayOpen-collapse-" + instrument.name} aria-expanded="false" aria-controls={"panelsStayOpen-collapse-" + instrument.name}>
                                 <div className="col-2 m-0 py-3 h6"><b>{instrument.name}</b></div>
                                 <div className='mx-1'></div>
-                                <div className="row col mx-3 lign-content-center gap-1 m-0 mx-5" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
+                                <div className="row col mx-3 align-content-center gap-1 m-0 mx-5" onMouseEnter={(e) => DisableAccordion(e)} onMouseLeave={(e) => EnableAccordion(e)}>
                                     <VolumeSliderControl volume={instrumentMasterVolumes[index]} maxVolume={1} setMute={(e) => setSongText(toggleMuteInstrument(songText, instrument))} isMute={instrument.mute}
                                         onVolumeChange={(newVolume) => setInstrumentMasterVolume(index, newVolume)} setProcessSong={setProcessSong} />
                                 </div>
