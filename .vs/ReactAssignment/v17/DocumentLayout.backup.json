@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\utils\\getinstruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\utils\\getinstruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\utils\\processtext.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\utils\\processtext.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\utils\\getinstruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\utils\\getinstruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\volumebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\volumebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\mastercontrols.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -19,8 +27,8 @@
       "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\volumeslidercontrol.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\volumeslidercontrol.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "App.js",
               "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\App.js",
               "RelativeDocumentMoniker": "src\\App.js",
               "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\App.js",
               "RelativeToolTip": "src\\App.js",
-              "ViewState": "AgIAACYAAAAAAAAAAAAAACwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-07T06:24:00.96Z",
               "IsPinned": true,
@@ -48,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MasterControls.jsx",
               "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\MasterControls.jsx",
               "RelativeDocumentMoniker": "src\\components\\MasterControls.jsx",
               "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\MasterControls.jsx",
               "RelativeToolTip": "src\\components\\MasterControls.jsx",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwC8AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-11-09T12:12:29.688Z",
               "IsPinned": true,
@@ -62,41 +70,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "getInstruments.jsx",
               "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\utils\\getInstruments.jsx",
               "RelativeDocumentMoniker": "src\\utils\\getInstruments.jsx",
-              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\utils\\getInstruments.jsx",
-              "RelativeToolTip": "src\\utils\\getInstruments.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABlAAAAAAAAAA==",
+              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\utils\\getInstruments.jsx*",
+              "RelativeToolTip": "src\\utils\\getInstruments.jsx*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T01:14:37.61Z",
+              "WhenOpened": "2025-11-15T05:08:07.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "processText.jsx",
               "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\utils\\processText.jsx",
               "RelativeDocumentMoniker": "src\\utils\\processText.jsx",
               "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\utils\\processText.jsx",
               "RelativeToolTip": "src\\utils\\processText.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T00:39:47.769Z",
+              "WhenOpened": "2025-11-15T03:50:36.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Instruments.jsx",
               "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\Instruments.jsx",
               "RelativeDocumentMoniker": "src\\components\\Instruments.jsx",
               "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\Instruments.jsx",
               "RelativeToolTip": "src\\components\\Instruments.jsx",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwC4AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAcwEUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-09T11:59:51.562Z",
+              "WhenOpened": "2025-11-15T03:06:18.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VolumeSliderControl.jsx",
+              "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\VolumeSliderControl.jsx",
+              "RelativeDocumentMoniker": "src\\components\\VolumeSliderControl.jsx",
+              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\VolumeSliderControl.jsx",
+              "RelativeToolTip": "src\\components\\VolumeSliderControl.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T03:00:33.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VolumeButton.jsx",
+              "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\VolumeButton.jsx",
+              "RelativeDocumentMoniker": "src\\components\\VolumeButton.jsx",
+              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\VolumeButton.jsx",
+              "RelativeToolTip": "src\\components\\VolumeButton.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T03:12:04.233Z",
               "EditorCaption": ""
             }
           ]

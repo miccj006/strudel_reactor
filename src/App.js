@@ -137,9 +137,21 @@ export default function StrudelDemo() {
                         <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
                             masterMute={masterMute} setMasterMute={setMasterMute}
                             onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
-                        <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
-                            <h6 className="position-absolute p-2 mx-1 text-secondary z-1"><b>Piano View</b></h6>
-                            <canvas className="bg-dark rounded shadow-sm z-0" id="roll"></canvas>
+                        <div className="position-relative p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
+                            <div className="position-absolute p-2 mx-0 text-secondary row" style={{ left: 0, right: 0 }}>
+                                <h6 className="col mx-2"><b>Piano View</b></h6>
+                                <h6 className="col mx-2 text-end"><i>Strudle Graph</i></h6>
+                            </div>
+                            <canvas className="bg-dark rounded shadow-sm" id="roll"></canvas>
+                        </div>
+                        <div className="position-relative p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
+                            <div className="position-absolute p-2 mx-0 text-secondary row" style={{ left: 0, right: 0 }}>
+                                <h6 className="col mx-2"><b>Fantastic View</b></h6>
+                                <h6 className="col mx-2 text-end"><i>D3 Graph</i></h6>
+                            </div>
+                            <div className="bg-dark p-3 pt-4 rounded shadow-sm text-secondary" id="d3-graph">
+                                <svg className="w-100" id="d3-svg"></svg>
+                            </div>
                         </div>
                         <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} instrumentMasterVolumes={instrumentMasterVolumes} setInstrumentMasterVolumes={setInstrumentMasterVolumes} />
                     </div>
