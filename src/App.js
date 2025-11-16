@@ -58,30 +58,53 @@ const handleD3Data = (event) => {
     const noteGains = getGainOfNotes(notes)
 
 
-    // Get the SVG
+    // Get the SVG and the dimensions
     const svg = d3.select("#d3-svg");
     const width = svg.node().getBoundingClientRect().width;
     const height = svg.node().getBoundingClientRect().height;
 
-    // Create scales
+    const margin = { left: 25, right: 0, bottom: 10, top: 10 }
+    const chartWidth = width - margin.left - margin.right
+    const chartHeight = height - margin.top - margin.bottom
+
+    // Clear the graph
+    svg.selectAll("*").remove()
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`)
+
+    // Create scales and axis
     const xScale = d3.scaleBand()
         .domain(noteGains.map((d, i) => i))
-        .range([0, width])
-        .padding(0.1);
+        .range([0, chartWidth])
+        .padding(0.3);
 
     const yScale = d3.scaleLinear()
         .domain([0, d3.max(noteGains)])
-        .range([height, 0]);
+        .range([chartHeight, 0]);
+
+    const yAxis = d3.axisLeft(yScale)
+        .ticks(2)
+        .tickFormat(d => d.toFixed(1))
+
+    g.append("g")
+        .classed("y-axis", true)
+        .call(yAxis)
+        .style("color", "gray")
 
     // Add bars showing gain values
-    svg.selectAll("rect")
+    g.selectAll("rect")
         .data(noteGains)
         .join("rect")
         .attr("x", (d, i) => xScale(i))
         .attr("y", d => yScale(d))
         .attr("width", xScale.bandwidth())
-        .attr("height", d => height - yScale(d))
-        .attr("fill", "gray");
+        .attr("height", d => chartHeight - yScale(d))
+        .attr("fill", "gray")
+        .attr("opacity", (d, i) => (i + 1) / noteGains.length)
+        .transition()  // Add smooth transition
+        .duration(300) // 300ms animation
+        .ease(d3.easeLinear); // Linear movement
 };
 
 
@@ -211,7 +234,7 @@ export default function StrudelDemo() {
                                 <h6 className="col mx-2"><b>Note Gains View</b></h6>
                                 <h6 className="col mx-2 text-end"><i>D3 Graph</i></h6>
                             </div>
-                            <div className="bg-dark p-3 pt-5 rounded shadow-sm text-secondary" id="d3-graph">
+                            <div className="bg-dark p-3 pt-4 pb-1 rounded shadow-sm text-secondary" id="d3-graph">
                                 <svg className="w-100" id="d3-svg"></svg>
                             </div>
                         </div>
