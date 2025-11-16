@@ -9,6 +9,7 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
 import MasterControls from './components/MasterControls';
 import PreprocessTextArea from './components/PreprocessTextArea';
@@ -19,7 +20,88 @@ import processText from './utils/processText';
 let globalEditor = null;
 
 const handleD3Data = (event) => {
-    console.log(event.detail);
+    function convertNoteToJson(text) {
+        const params = text.split(': ')[1];
+        const paramMatches = params.match(/\w+:[^\s]+/g);
+        const parameters = {};
+
+        paramMatches.forEach(match => {
+            const [key, value] = match.split(':');
+            parameters[key] = isNaN(value) ? value : parseFloat(value);
+        })
+
+        const result = {
+            ...parameters
+        };
+
+        return result
+    }
+
+    function convertNotesToJson(arrayOfNotes) {
+        const notes = [];
+        arrayOfNotes.forEach(note => {
+            notes.push(convertNoteToJson(note))
+        })
+        return notes
+    }
+
+    function getGainOfNotes(notes) {
+        const noteGains = [];
+        notes.forEach(note => {
+            noteGains.push(note.gain ? note.gain : 0)
+        })
+        return noteGains
+    }
+
+    // Get array of note gain values
+    const notes = convertNotesToJson(event.detail)
+    const noteGains = getGainOfNotes(notes)
+
+
+    // Get the SVG and the dimensions
+    const svg = d3.select("#d3-svg");
+    const width = svg.node().getBoundingClientRect().width;
+    const height = svg.node().getBoundingClientRect().height;
+
+    const margin = { left: 25, right: 0, bottom: 10, top: 10 }
+    const chartWidth = width - margin.left - margin.right
+    const chartHeight = height - margin.top - margin.bottom
+
+    // Clear the graph
+    svg.selectAll("*").remove()
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`)
+
+    // Create scales and axis
+    const xScale = d3.scaleBand()
+        .domain(noteGains.map((d, i) => i))
+        .range([0, chartWidth])
+        .padding(0.3);
+
+    const yScale = d3.scaleLinear()
+        .domain([0, d3.max(noteGains)])
+        .range([chartHeight, 0]);
+
+    const yAxis = d3.axisLeft(yScale)
+        .ticks(2)
+        .tickFormat(d => d.toFixed(1))
+
+    g.append("g")
+        .classed("y-axis", true)
+        .call(yAxis)
+        .style("color", "gray")
+
+    // Add bars showing gain values
+    g.selectAll("rect")
+        .data(noteGains)
+        .join("rect")
+        .attr("x", (d, i) => xScale(i))
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => chartHeight - yScale(d))
+        .attr("fill", "gray")
+        .attr("opacity", (d, i) => (i + 1) / noteGains.length)
 };
 
 
@@ -137,9 +219,21 @@ export default function StrudelDemo() {
                         <MasterControls onPlay={handlePlay} onStop={handleStop} songIsPlaying={songIsPlaying} songText={songText} setSongText={setSongText} masterVolume={masterVolume}
                             masterMute={masterMute} setMasterMute={setMasterMute}
                             onMasterVolumeChange={setMasterVolume} setProcessSong={setProcessSong} />
-                        <div className="p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
-                            <h6 className="position-absolute p-2 mx-1 text-secondary z-1"><b>Piano View</b></h6>
-                            <canvas className="bg-dark rounded shadow-sm z-0" id="roll"></canvas>
+                        <div className="position-relative p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
+                            <div className="position-absolute p-2 mx-0 text-secondary row" style={{ left: 0, right: 0 }}>
+                                <h6 className="col mx-2"><b>Piano View</b></h6>
+                                <h6 className="col mx-2 text-end"><i>Strudle Graph</i></h6>
+                            </div>
+                            <canvas className="bg-dark rounded shadow-sm" id="roll"></canvas>
+                        </div>
+                        <div className="position-relative p-3 m-2 rounded shadow bg-light-gray" id='canvas-view'>
+                            <div className="position-absolute p-2 mx-0 text-secondary row" style={{ left: 0, right: 0 }}>
+                                <h6 className="col mx-2"><b>Note Gains View</b></h6>
+                                <h6 className="col mx-2 text-end"><i>D3 Graph</i></h6>
+                            </div>
+                            <div className="bg-dark p-3 pt-4 pb-1 rounded shadow-sm text-secondary" id="d3-graph">
+                                <svg className="w-100" id="d3-svg"></svg>
+                            </div>
                         </div>
                         <Instruments songText={songText} setSongText={setSongText} setProcessSong={setProcessSong} instrumentMasterVolumes={instrumentMasterVolumes} setInstrumentMasterVolumes={setInstrumentMasterVolumes} />
                     </div>
