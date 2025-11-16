@@ -102,9 +102,6 @@ const handleD3Data = (event) => {
         .attr("height", d => chartHeight - yScale(d))
         .attr("fill", "gray")
         .attr("opacity", (d, i) => (i + 1) / noteGains.length)
-        .transition()  // Add smooth transition
-        .duration(300) // 300ms animation
-        .ease(d3.easeLinear); // Linear movement
 };
 
 
