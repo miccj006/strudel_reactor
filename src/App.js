@@ -71,7 +71,7 @@ const handleD3Data = (event) => {
     svg.selectAll("*").remove()
 
     const g = svg.append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`)
+        .attr("transform", `translate(${margin.left - margin.right},${margin.top})`)
 
     // Create scales and axis
     const xScale = d3.scaleBand()
