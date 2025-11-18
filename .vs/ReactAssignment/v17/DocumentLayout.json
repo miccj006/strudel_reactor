@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\instruments.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|d:\\20-29 university\\20 courses\\20.00 web technology\\assignments\\assignment 2\\strudel_reactor\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -37,14 +37,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Instruments.jsx",
-              "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\Instruments.jsx",
-              "RelativeDocumentMoniker": "src\\components\\Instruments.jsx",
-              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\src\\components\\Instruments.jsx",
-              "RelativeToolTip": "src\\components\\Instruments.jsx",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAFAAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-18T04:43:03.606Z",
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "D:\\20-29 University\\20 Courses\\20.00 Web Technology\\Assignments\\Assignment 2\\strudel_reactor\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-18T05:40:57.891Z",
               "EditorCaption": ""
             }
           ]

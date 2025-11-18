@@ -1,6 +1,9 @@
 # Strudle Demo - Assignment 2 - Miccj006
 ![image](public/webpage.png)
 
+### Link to Video Demonstration
+- https://youtu.be/oxKLUbzBCgE
+
 ## Features
 All features of the application are clearly labelled within the app.
 The app includes:
