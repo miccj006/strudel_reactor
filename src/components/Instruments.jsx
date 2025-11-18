@@ -85,40 +85,6 @@ function Instruments({ songText, setSongText, setProcessSong, instrumentMasterVo
                                             <div className="row my-2 align-content-center gap-1 m-0 text-muted">No gain values detected</div>
                                         )}
                                     </div>
-                                    {/*<div className="col">*/}
-                                    {/*    <div className="form-check">*/}
-                                    {/*        <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios1" + index} value="option1" defaultChecked />*/}
-                                    {/*        <label className="form-check-label" for={"exampleRadios1" + index}>*/}
-                                    {/*            Style 1*/}
-                                    {/*        </label>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className="form-check">*/}
-                                    {/*        <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios2" + index} value="option2" />*/}
-                                    {/*        <label className="form-check-label" for={"exampleRadios2" + index}>*/}
-                                    {/*            Style 2*/}
-                                    {/*        </label>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className="form-check">*/}
-                                    {/*        <input className="form-check-input" type="radio" name={"exampleRadios" + index} id={"exampleRadios3" + index} value="option3" disabled />*/}
-                                    {/*        <label className="form-check-label fst-italic" for={"exampleRadios3" + index}>*/}
-                                    {/*            New style coming soon*/}
-                                    {/*        </label>*/}
-                                    {/*    </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="col">*/}
-                                    {/*    <div className="form-check">*/}
-                                    {/*        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />*/}
-                                    {/*        <label className="form-check-label" for="flexCheckDefault">*/}
-                                    {/*            Feature 1*/}
-                                    {/*        </label>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className="form-check">*/}
-                                    {/*        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />*/}
-                                    {/*        <label className="form-check-label" for="flexCheckChecked">*/}
-                                    {/*            Feature 2*/}
-                                    {/*        </label>*/}
-                                    {/*    </div>*/}
-                                    {/*</div>*/}
                                     <div className="col">
                                         <h6 className="p-0 fst-italic"><b>Effects</b></h6>
                                         <div className="form-check form-switch">
