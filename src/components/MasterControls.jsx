@@ -4,6 +4,28 @@ import VolumeSliderControl from './VolumeSliderControl'
 
 function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, masterVolume, onMasterVolumeChange, setProcessSong, masterMute, setMasterMute }) {
     const cycleData = getCycleData(songText)
+
+    const getCurrentPattern = () => {
+        const match = songText.match(/const pattern = (\d+)/);
+        return match ? parseInt(match[1]) : 0;
+    };
+
+    const getCurrentBass = () => {
+        const match = songText.match(/const bass = (\d+)/);
+        return match ? parseInt(match[1]) : 0;
+    };
+
+    const handlePatternChange = (value) => {
+        const newSongText = songText.replace(/const pattern = \d+/, `const pattern = ${value}`);
+        setSongText(newSongText);
+        setProcessSong(true);
+    };
+
+    const handleBassChange = (value) => {
+        const newSongText = songText.replace(/const bass = \d+/, `const bass = ${value}`);
+        setSongText(newSongText);
+        setProcessSong(true);
+    };
     function getCycleData(songText) {
         const cycleData = {
             isCycleExists: false,
@@ -69,31 +91,31 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
                 <VolumeSliderControl volume={masterVolume} maxVolume={1} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
 
-            <div className="row align-items-center m-0 mt-3 gap-4">
+            <div className="row align-items-center m-0 mt-3 p-3 gap-4 rounded shadow-sm bg-light">
                 <div className="col rounded shadow-sm bg-white">
-                    <h5><b>gain_patterns</b></h5>
+                    <h6><b>gain_patterns</b></h6>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns1" value="option1" defaultChecked="true" />
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns1" value="0" checked={getCurrentPattern() === 0} onChange={(e) => handlePatternChange(e.target.value)} />
                         <label class="form-check-label" for="gain-patterns1">1</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns2" value="option2" />
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns2" value="1" checked={getCurrentPattern() === 1} onChange={(e) => handlePatternChange(e.target.value)} />
                         <label class="form-check-label" for="gain-patterns2">2</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns3" value="option3" />
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns3" value="2" checked={getCurrentPattern() === 2} onChange={(e) => handlePatternChange(e.target.value)} />
                         <label class="form-check-label" for="gain-patterns3">3</label>
                     </div>
                 </div>
 
                 <div className="col rounded shadow-sm bg-white">
-                    <h5><b>basslines</b></h5>
+                    <h6><b>basslines</b></h6>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines1" value="option1" defaultChecked="true" />
+                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines1" value="0" checked={getCurrentBass() === 0} onChange={(e) => handleBassChange(e.target.value)} />
                         <label class="form-check-label" for="basslines1">1</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines2" value="option2" />
+                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines2" value="1" checked={getCurrentBass() === 1} onChange={(e) => handleBassChange(e.target.value)} />
                         <label class="form-check-label" for="basslines2">2</label>
                     </div>
                 </div>
