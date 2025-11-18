@@ -137,6 +137,7 @@ export default function StrudelDemo() {
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
     };
+    const [darkMode, setDarkMode] = useState(false);
 
     // Resize canvas upon screen resize
     useEffect(() => {
@@ -199,10 +200,18 @@ export default function StrudelDemo() {
 
 
     return (
-        <div className="bg-gray d-flex flex-column min-vh-100">
-            <header className="w-100 bg-light-gray text-muted p-2 mb-4 px-4 shadow" >
-                <div className="h4 m-0"><b>Music Mixer</b></div>
-                <div className="h6 mb-1 mx-3 fst-italic text-secondary">Powered by Strudle</div>
+        <div className={`${darkMode ? 'bg-secondary' : 'bg-gray'} d-flex flex-column min-vh-100`}>
+            <header className="row w-100 bg-light-gray text-muted m-0 p-2 mb-4 px-4 shadow" >
+                <div className="col">
+                    <div className="h4 m-0"><b>Music Mixer</b></div>
+                    <div className="h6 mb-1 mx-3 fst-italic text-secondary">Powered by Strudle</div>
+                </div>
+                <div className="col d-flex justify-content-end align-items-center">
+                    <div className="form-check form-switch">
+                        <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onChange={(e) => setDarkMode(e.target.checked)} />
+                        <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+                    </div>
+                </div>
             </header>
             <main className="p-4 pt-0">
                 <div className="container-fluid row">
