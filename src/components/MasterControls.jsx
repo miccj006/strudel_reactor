@@ -68,6 +68,36 @@ function MasterControls({ onPlay, onStop, songIsPlaying, songText, setSongText, 
             <div className="row align-items-center m-0 mt-3 gap-1">
                 <VolumeSliderControl volume={masterVolume} maxVolume={1} setMute={setMasterMute} isMute={masterMute} onVolumeChange={onMasterVolumeChange} setProcessSong={setProcessSong} />
             </div>
+
+            <div className="row align-items-center m-0 mt-3 gap-4">
+                <div className="col rounded shadow-sm bg-white">
+                    <h5><b>gain_patterns</b></h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns1" value="option1" defaultChecked="true" />
+                        <label class="form-check-label" for="gain-patterns1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns2" value="option2" />
+                        <label class="form-check-label" for="gain-patterns2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gain-patternsOptions" id="gain-patterns3" value="option3" />
+                        <label class="form-check-label" for="gain-patterns3">3</label>
+                    </div>
+                </div>
+
+                <div className="col rounded shadow-sm bg-white">
+                    <h5><b>basslines</b></h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines1" value="option1" defaultChecked="true" />
+                        <label class="form-check-label" for="basslines1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="basslinesOptions" id="basslines2" value="option2" />
+                        <label class="form-check-label" for="basslines2">2</label>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
