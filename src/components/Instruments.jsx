@@ -88,8 +88,8 @@ function Instruments({ songText, setSongText, setProcessSong, instrumentMasterVo
                                     <div className="col">
                                         <h6 className="p-0 fst-italic"><b>Effects</b></h6>
                                         <div className="form-check form-switch">
-                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-                                            <label className="form-check-label" for="flexSwitchCheckDefault">Bass Boost</label>
+                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" disabled />
+                                            <label className="form-check-label" for="flexSwitchCheckDefault">Increase Room Size (Coming Soon)</label>
                                         </div>
                                     </div>
                                 </div>
